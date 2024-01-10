@@ -21,19 +21,17 @@ import java.util.Iterator;
 public class MainActivity extends AppCompatActivity {
 
     private ListView listViewCountries;
-    private CountryAdapter adapter;
-    private ArrayList<Country> countryList;
+    private Paisadaptador adapter;
+    private ArrayList<nombrepais> countryList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         listViewCountries = findViewById(R.id.listViewCountries);
         countryList = new ArrayList<>();
-        adapter = new CountryAdapter(this, countryList);
+        adapter = new Paisadaptador(this, countryList);
         listViewCountries.setAdapter(adapter);
-
         new FetchCountryData().execute();
     }
 
@@ -45,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
                 URL url = new URL("http://www.geognos.com/api/en/countries/info/all.json");
                 HttpURLConnection connection = (HttpURLConnection) url.openConnection();
                 connection.connect();
-
                 InputStream inputStream = connection.getInputStream();
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
                 StringBuilder stringBuilder = new StringBuilder();
@@ -54,11 +51,9 @@ public class MainActivity extends AppCompatActivity {
                 while ((line = bufferedReader.readLine()) != null) {
                     stringBuilder.append(line).append("\n");
                 }
-
                 String json = stringBuilder.toString();
                 JSONObject jsonObject = new JSONObject(json);
                 JSONObject countries = jsonObject.getJSONObject("Results");
-
                 Iterator<String> keys = countries.keys();
                 while (keys.hasNext()) {
                     String countryCode = keys.next();
@@ -69,10 +64,9 @@ public class MainActivity extends AppCompatActivity {
 
                     String flagURL = "http://www.geognos.com/api/en/countries/flag/" + countryCode + ".png";
 
-                    Country country = new Country(countryName, countryCapital, flagURL);
+                    nombrepais country = new nombrepais(countryName, countryCapital, flagURL);
                     countryList.add(country);
                 }
-
                 inputStream.close();
                 connection.disconnect();
 

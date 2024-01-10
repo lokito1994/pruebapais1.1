@@ -15,7 +15,7 @@
         android:layout_marginStart="31dp"
         android:layout_marginTop="57dp"
         android:layout_marginEnd="41dp"
-        android:text="Paises y Banderas"
+        android:text="PAÍSES Y CAPITALES"
         android:textAlignment="center"
         android:textSize="30sp"
         android:textStyle="bold"

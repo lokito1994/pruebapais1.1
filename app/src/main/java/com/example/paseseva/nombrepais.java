@@ -1,11 +1,11 @@
 package com.example.paseseva;
 
-public class Country {
+public class nombrepais {
     private final String name;
     private final String capital;
     private final String flagURL;
 
-    public Country(String name, String capital, String flagURL) {
+    public nombrepais(String name, String capital, String flagURL) {
         this.name = name;
         this.capital = capital;
         this.flagURL = flagURL;

@@ -6,13 +6,13 @@
     android:orientation="horizontal">
 
     <ImageView
-        android:id="@+id/imageViewCountryFlag"
+        android:id="@+id/banderaimg"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_margin="8dp" />
 
     <TextView
-        android:id="@+id/textViewCountryName"
+        android:id="@+id/nombrepais"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -21,7 +21,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/textViewCountryCapital"
+        android:id="@+id/nombrecapital"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
